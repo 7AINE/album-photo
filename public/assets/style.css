@@ -1,0 +1,423 @@
+/* =======================================================
+   ALBUM PHOTO M2L - DESIGN DE LA PREMIERE VERSION
+   Architecture MVC conservée - BTS SIO SLAM
+   Couleurs principales : modifier les variables ci-dessous.
+   ======================================================= */
+
+:root {
+    --fond: #f5f7f7;
+    --surface: #ffffff;
+    --texte: #162329;
+    --secondaire: #637570;
+    --principal: #007d70;
+    --principal-fonce: #126c66;
+    --bordure: #dfe8e6;
+    --danger: #ad3535;
+    --rayon: 16px;
+}
+
+/* 1. Styles generaux */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    line-height: 1.5;
+}
+
+a {
+    color: var(--principal);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: min(1100px, calc(100% - 44px));
+    margin: 0 auto;
+}
+
+/* 2. Menu de navigation blanc */
+.site-header {
+    background: white;
+    border-bottom: 1px solid var(--bordure);
+}
+
+.navigation {
+    min-height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    color: #12292b;
+    font-size: 24px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #00a992;
+}
+
+.navigation nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    font-size: 14px;
+}
+
+.pseudo {
+    color: #475e5d;
+    font-weight: 700;
+}
+
+.inline-form {
+    margin: 0;
+}
+
+.lien-bouton {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    color: var(--principal);
+    font: inherit;
+    cursor: pointer;
+}
+
+/* 3. Contenu et bandeau de la page d'accueil */
+.contenu {
+    flex: 1;
+    width: min(1100px, calc(100% - 44px));
+    padding-bottom: 70px;
+}
+
+.hero {
+    margin: 30px 0 50px;
+    padding: 60px 36px;
+    border-radius: 20px;
+    color: white;
+    background: linear-gradient(125deg, #0f3e42, #126c66);
+}
+
+.hero .surtitre {
+    margin: 0;
+    color: #85e7cd;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    max-width: 660px;
+    margin: 14px 0;
+    font-size: clamp(28px, 5vw, 50px);
+    line-height: 1.1;
+}
+
+.hero p:last-child {
+    max-width: 630px;
+}
+
+/* 4. Navigation entre les albums */
+.onglets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 30px;
+}
+
+.onglet {
+    padding: 11px 20px;
+    border: 1px solid #bcd0cc;
+    border-radius: 999px;
+    background: white;
+    color: #31514f;
+}
+
+.onglet.actif {
+    color: white;
+    border-color: var(--principal-fonce);
+    background: var(--principal-fonce);
+}
+
+/* 5. Galerie de photos */
+.grille-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin: 24px 0 64px;
+}
+
+.carte-photo,
+.panneau,
+.detail-photo {
+    background: var(--surface);
+    border: 1px solid #e3ebea;
+    border-radius: var(--rayon);
+}
+
+.carte-photo {
+    overflow: hidden;
+}
+
+.carte-photo img {
+    display: block;
+    width: 100%;
+    height: 235px;
+    object-fit: cover;
+}
+
+.carte-contenu {
+    padding: 20px;
+}
+
+.carte-contenu h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.carte-contenu p {
+    color: var(--secondaire);
+    font-size: 14px;
+}
+
+.lien-detail {
+    display: block;
+    margin-top: 18px;
+    font-weight: 700;
+}
+
+.panneau {
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.vide {
+    padding: 45px;
+    background: transparent;
+    text-align: center;
+    border: 1px dashed #a4bdb7;
+    border-radius: 15px;
+}
+
+/* 6. Formulaires (connexion, inscription, ajout photo) */
+.largeur-moyenne {
+    max-width: 550px;
+    margin: 45px auto;
+}
+
+.formulaire h1 {
+    margin-top: 0;
+}
+
+.formulaire label {
+    display: block;
+    margin: 17px 0 8px;
+    font-weight: 650;
+}
+
+.formulaire input,
+.formulaire select,
+.formulaire textarea {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #bacdc9;
+    border-radius: 10px;
+    background: white;
+    color: var(--texte);
+    font: inherit;
+}
+
+.formulaire textarea {
+    resize: vertical;
+}
+
+.formulaire button {
+    margin-top: 18px;
+}
+
+.bouton {
+    display: inline-block;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--principal);
+    color: white;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.bouton:hover {
+    filter: brightness(.92);
+    color: white;
+    text-decoration: none;
+}
+
+.bouton.petit {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.bouton.danger {
+    background: var(--danger);
+}
+
+.bouton.secondaire {
+    background: #e8edf0;
+    color: #b33838;
+}
+
+/* 7. Detail d'une photo */
+.retour {
+    display: block;
+    margin: 30px 0 15px;
+}
+
+.detail-photo {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.detail-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #132223;
+}
+
+.photo-large {
+    display: block;
+    width: 100%;
+    max-height: 580px;
+    object-fit: contain;
+}
+
+.detail-infos {
+    padding: 25px;
+}
+
+.detail-infos h1 {
+    overflow-wrap: anywhere;
+}
+
+.texte-secondaire {
+    color: var(--secondaire);
+    font-size: 14px;
+}
+
+/* 8. Commentaires */
+.commentaires {
+    max-width: 800px;
+    margin: 0 auto 70px;
+}
+
+.commentaire {
+    padding: 18px;
+    margin: 12px 0;
+}
+
+.commentaire-entete {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.commentaire-entete small {
+    color: #73827e;
+}
+
+.texte-conserve-sauts {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.etiquette {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 8px;
+    background: #fff3c2;
+    color: #795300;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* 9. Messages et administration */
+.alerte {
+    padding: 14px;
+    margin: 20px 0;
+    border-radius: 10px;
+    background: #dcf6e8;
+    color: #166143;
+}
+
+.alerte.erreur {
+    background: #ffe6e6;
+    color: #9a2525;
+}
+
+.intro {
+    margin: 35px 0 25px;
+}
+
+.intro .surtitre {
+    color: var(--principal);
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* 10. Pied de page */
+.site-footer {
+    padding: 26px 0;
+    background: #122b2e;
+    color: #ccdcd9;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* 11. Adaptation sur telephone */
+@media (max-width: 700px) {
+    .navigation {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .navigation nav {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 40px 23px;
+        margin-bottom: 35px;
+    }
+
+    .detail-photo {
+        grid-template-columns: 1fr;
+    }
+
+    .commentaire-entete {
+        flex-direction: column;
+        gap: 4px;
+    }
+}

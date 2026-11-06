@@ -1,0 +1,5 @@
+/config/config.local.php
+/storage/photos/*
+!/storage/photos/.gitignore
+/.idea/
+/.vscode/
