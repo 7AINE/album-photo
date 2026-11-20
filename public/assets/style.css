@@ -1,423 +1,510 @@
 /* =======================================================
-   ALBUM PHOTO M2L - DESIGN DE LA PREMIERE VERSION
-   Architecture MVC conservée - BTS SIO SLAM
-   Couleurs principales : modifier les variables ci-dessous.
+   ALBUM PHOTO M2L - FEUILLE DE STYLE
+   Architecture MVC - BTS SIO SLAM
    ======================================================= */
 
+/* ==========================================
+   1. COULEURS ET VARIABLES PRINCIPALES
+   ========================================== */
 :root {
-    --fond: #f5f7f7;
-    --surface: #ffffff;
-    --texte: #162329;
-    --secondaire: #637570;
-    --principal: #007d70;
-    --principal-fonce: #126c66;
-    --bordure: #dfe8e6;
-    --danger: #ad3535;
-    --rayon: 16px;
+  --fond: #f5f7f7;
+  --surface: #ffffff;
+  --texte: #162329;
+  --secondaire: #637570;
+  --principal: #007d70;
+  --principal-fonce: #126c66;
+  --bordure: #dfe8e6;
+  --danger: #ad3535;
+  --rayon: 16px;
 }
 
-/* 1. Styles generaux */
+/* ==========================================
+   2. STYLES GENERAUX ET CONTENEURS
+   ========================================== */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    min-height: 100%;
+  min-height: 100%;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-    background: var(--fond);
-    color: var(--texte);
-    line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.5;
 }
 
 a {
-    color: var(--principal);
-    text-decoration: none;
+  color: var(--principal);
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .container {
-    width: min(1100px, calc(100% - 44px));
-    margin: 0 auto;
+  width: min(1100px, calc(100% - 44px));
+  margin: 0 auto;
 }
 
-/* 2. Menu de navigation blanc */
+/* ==========================================
+   3. EN-TETE ET MENU DE NAVIGATION
+   ========================================== */
 .site-header {
-    background: white;
-    border-bottom: 1px solid var(--bordure);
+  background: white;
+  border-bottom: 1px solid var(--bordure);
 }
 
 .navigation {
-    min-height: 74px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+  min-height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .logo {
-    color: #12292b;
-    font-size: 24px;
-    font-weight: 900;
-    white-space: nowrap;
+  color: #12292b;
+  font-size: 24px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
 .logo span {
-    color: #00a992;
+  color: #00a992;
 }
 
 .navigation nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 18px;
-    font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
 }
 
 .pseudo {
-    color: #475e5d;
-    font-weight: 700;
+  color: #475e5d;
+  font-weight: 700;
 }
 
 .inline-form {
-    margin: 0;
+  margin: 0;
 }
 
 .lien-bouton {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background: none;
-    color: var(--principal);
-    font: inherit;
-    cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: var(--principal);
+  font: inherit;
+  cursor: pointer;
 }
 
-/* 3. Contenu et bandeau de la page d'accueil */
+/* ==========================================
+   4. CONTENU PRINCIPAL ET BANDEAU D'ACCUEIL
+   ========================================== */
 .contenu {
-    flex: 1;
-    width: min(1100px, calc(100% - 44px));
-    padding-bottom: 70px;
+  flex: 1;
+  width: min(1100px, calc(100% - 44px));
+  padding-bottom: 70px;
 }
 
 .hero {
-    margin: 30px 0 50px;
-    padding: 60px 36px;
-    border-radius: 20px;
-    color: white;
-    background: linear-gradient(125deg, #0f3e42, #126c66);
+  margin: 30px 0 50px;
+  padding: 60px 36px;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(125deg, #0f3e42, #126c66);
 }
 
 .hero .surtitre {
-    margin: 0;
-    color: #85e7cd;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
+  margin: 0;
+  color: #85e7cd;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 .hero h1 {
-    max-width: 660px;
-    margin: 14px 0;
-    font-size: clamp(28px, 5vw, 50px);
-    line-height: 1.1;
+  max-width: 660px;
+  margin: 14px 0;
+  font-size: clamp(28px, 5vw, 50px);
+  line-height: 1.1;
 }
 
 .hero p:last-child {
-    max-width: 630px;
+  max-width: 630px;
 }
 
-/* 4. Navigation entre les albums */
+/* ==========================================
+   5. ONGLETS DE NAVIGATION ENTRE LES ALBUMS
+   ========================================== */
 .onglets {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 0 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 30px;
 }
 
 .onglet {
-    padding: 11px 20px;
-    border: 1px solid #bcd0cc;
-    border-radius: 999px;
-    background: white;
-    color: #31514f;
+  padding: 11px 20px;
+  border: 1px solid #bcd0cc;
+  border-radius: 999px;
+  background: white;
+  color: #31514f;
 }
 
 .onglet.actif {
-    color: white;
-    border-color: var(--principal-fonce);
-    background: var(--principal-fonce);
+  color: white;
+  border-color: var(--principal-fonce);
+  background: var(--principal-fonce);
 }
 
-/* 5. Galerie de photos */
+/* ==========================================
+   6. GALERIE PHOTOS - AFFICHAGE EN GRILLE
+   ========================================== */
 .grille-photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin: 24px 0 64px;
+  display: grid;
+  /* Trois colonnes identiques sur ordinateur */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin: 24px 0 64px;
 }
 
+/* Styles communs aux encadrements */
 .carte-photo,
 .panneau,
 .detail-photo {
-    background: var(--surface);
-    border: 1px solid #e3ebea;
-    border-radius: var(--rayon);
+  background: var(--surface);
+  border: 1px solid #e3ebea;
+  border-radius: var(--rayon);
 }
 
+/* Une carte occupe toute la hauteur de sa case */
 .carte-photo {
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
 }
 
+/* Lien qui entoure l'image */
+.carte-photo > a:first-child {
+  display: block;
+  width: 100%;
+}
+
+/* Toutes les images ont la même hauteur sans déformation */
 .carte-photo img {
-    display: block;
-    width: 100%;
-    height: 235px;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 235px;
+  object-fit: cover;
+  object-position: center;
 }
 
+/* Texte et lien sous la photo */
 .carte-contenu {
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
 }
 
 .carte-contenu h2 {
-    margin: 0 0 8px;
-    font-size: 20px;
+  margin: 0 0 8px;
+  font-size: 20px;
+  overflow-wrap: anywhere;
 }
 
 .carte-contenu p {
-    color: var(--secondaire);
-    font-size: 14px;
+  color: var(--secondaire);
+  font-size: 14px;
 }
 
 .lien-detail {
-    display: block;
-    margin-top: 18px;
-    font-weight: 700;
+  display: block;
+  margin-top: auto;
+  padding-top: 18px;
+  font-weight: 700;
 }
 
+/* Message lorsqu'une page ne contient aucune photo */
 .panneau {
-    padding: 24px;
-    margin-bottom: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
 }
 
 .vide {
-    padding: 45px;
-    background: transparent;
-    text-align: center;
-    border: 1px dashed #a4bdb7;
-    border-radius: 15px;
+  padding: 45px;
+  background: transparent;
+  text-align: center;
+  border: 1px dashed #a4bdb7;
+  border-radius: 15px;
 }
 
-/* 6. Formulaires (connexion, inscription, ajout photo) */
+/* ==========================================
+   7. FORMULAIRES : CONNEXION, INSCRIPTION, PHOTO
+   ========================================== */
 .largeur-moyenne {
-    max-width: 550px;
-    margin: 45px auto;
+  max-width: 550px;
+  margin: 45px auto;
 }
 
 .formulaire h1 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .formulaire label {
-    display: block;
-    margin: 17px 0 8px;
-    font-weight: 650;
+  display: block;
+  margin: 17px 0 8px;
+  font-weight: 650;
 }
 
 .formulaire input,
 .formulaire select,
 .formulaire textarea {
-    display: block;
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #bacdc9;
-    border-radius: 10px;
-    background: white;
-    color: var(--texte);
-    font: inherit;
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #bacdc9;
+  border-radius: 10px;
+  background: white;
+  color: var(--texte);
+  font: inherit;
 }
 
 .formulaire textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 .formulaire button {
-    margin-top: 18px;
+  margin-top: 18px;
 }
 
+/* ==========================================
+   8. BOUTONS ET ACTIONS
+   ========================================== */
 .bouton {
-    display: inline-block;
-    padding: 12px 18px;
-    border: 0;
-    border-radius: 9px;
-    background: var(--principal);
-    color: white;
-    font: inherit;
-    font-weight: 750;
-    cursor: pointer;
+  display: inline-block;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--principal);
+  color: white;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
 }
 
 .bouton:hover {
-    filter: brightness(.92);
-    color: white;
-    text-decoration: none;
+  filter: brightness(0.92);
+  color: white;
+  text-decoration: none;
 }
 
 .bouton.petit {
-    padding: 8px 12px;
-    font-size: 13px;
+  padding: 8px 12px;
+  font-size: 13px;
 }
 
 .bouton.danger {
-    background: var(--danger);
+  background: var(--danger);
 }
 
 .bouton.secondaire {
-    background: #e8edf0;
-    color: #b33838;
+  background: #e8edf0;
+  color: #b33838;
 }
 
-/* 7. Detail d'une photo */
+/* ==========================================
+   9. PAGE DE DETAIL D'UNE PHOTO
+   ========================================== */
 .retour {
-    display: block;
-    margin: 30px 0 15px;
+  display: block;
+  margin: 30px 0 15px;
 }
 
 .detail-photo {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
-    overflow: hidden;
-    margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(250px, 1fr);
+  overflow: hidden;
+  margin-bottom: 40px;
 }
 
 .detail-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #132223;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #132223;
 }
 
 .photo-large {
-    display: block;
-    width: 100%;
-    max-height: 580px;
-    object-fit: contain;
+  display: block;
+  width: 100%;
+  max-height: 580px;
+  object-fit: contain;
 }
 
 .detail-infos {
-    padding: 25px;
+  padding: 25px;
 }
 
 .detail-infos h1 {
-    overflow-wrap: anywhere;
+  overflow-wrap: anywhere;
 }
 
 .texte-secondaire {
-    color: var(--secondaire);
-    font-size: 14px;
+  color: var(--secondaire);
+  font-size: 14px;
 }
 
-/* 8. Commentaires */
+/* ==========================================
+   10. COMMENTAIRES
+   ========================================== */
 .commentaires {
-    max-width: 800px;
-    margin: 0 auto 70px;
+  max-width: 800px;
+  margin: 0 auto 70px;
 }
 
 .commentaire {
-    padding: 18px;
-    margin: 12px 0;
+  padding: 18px;
+  margin: 12px 0;
 }
 
 .commentaire-entete {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .commentaire-entete small {
-    color: #73827e;
+  color: #73827e;
 }
 
 .texte-conserve-sauts {
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .etiquette {
-    display: inline-block;
-    padding: 5px 9px;
-    border-radius: 8px;
-    background: #fff3c2;
-    color: #795300;
-    font-size: 12px;
-    font-weight: 700;
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: #fff3c2;
+  color: #795300;
+  font-size: 12px;
+  font-weight: 700;
 }
 
-/* 9. Messages et administration */
+/* ==========================================
+   11. MESSAGES ET PAGE D'ADMINISTRATION
+   ========================================== */
 .alerte {
-    padding: 14px;
-    margin: 20px 0;
-    border-radius: 10px;
-    background: #dcf6e8;
-    color: #166143;
+  padding: 14px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background: #dcf6e8;
+  color: #166143;
 }
 
 .alerte.erreur {
-    background: #ffe6e6;
-    color: #9a2525;
+  background: #ffe6e6;
+  color: #9a2525;
 }
 
 .intro {
-    margin: 35px 0 25px;
+  margin: 35px 0 25px;
 }
 
 .intro .surtitre {
-    color: var(--principal);
-    font-weight: 800;
-    letter-spacing: 2px;
+  color: var(--principal);
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
-/* 10. Pied de page */
+/* ==========================================
+   12. ADMINISTRATION - GESTION DES ALBUMS
+   ========================================== */
+
+.album-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+  padding: 15px 0;
+
+  border-bottom: 1px solid var(--bordure);
+}
+
+.album-admin a {
+  font-weight: 700;
+}
+
+.album-admin form {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .album-admin {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================
+   13. ADMINISTRATION - MODIFICATION DES ALBUMS
+   ========================================== */
+
+.formulaire-modification {
+  padding: 20px;
+  margin: 10px 0 25px;
+
+  background: #f5f7f7;
+  border: 1px solid var(--bordure);
+  border-radius: 12px;
+}
+
+/* Cacher le formulaire lorsqu'il est désactivé */
+.formulaire-modification[hidden] {
+  display: none;
+}
+
+/* Aligner les boutons de gestion */
+.album-admin {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--bordure);
+}
+
+.album-admin a {
+  flex: 1;
+}
+
+/* ==========================================
+   14. PIED DE PAGE
+   ========================================== */
 .site-footer {
-    padding: 26px 0;
-    background: #122b2e;
-    color: #ccdcd9;
-    text-align: center;
-    font-size: 13px;
-}
-
-/* 11. Adaptation sur telephone */
-@media (max-width: 700px) {
-    .navigation {
-        flex-direction: column;
-        padding: 15px 0;
-    }
-
-    .navigation nav {
-        justify-content: center;
-    }
-
-    .hero {
-        padding: 40px 23px;
-        margin-bottom: 35px;
-    }
-
-    .detail-photo {
-        grid-template-columns: 1fr;
-    }
-
-    .commentaire-entete {
-        flex-direction: column;
-        gap: 4px;
-    }
+  padding: 26px 0;
+  background: #122b2e;
+  color: #ccdcd9;
+  text-align: center;
+  font-size: 13px;
 }

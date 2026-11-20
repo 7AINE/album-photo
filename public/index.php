@@ -23,6 +23,8 @@ $routes = [
     'logout' => ['POST', AuthController::class, 'deconnexion'],
     'admin' => ['GET', AdminController::class, 'index'],
     'page-store' => ['POST', AdminController::class, 'creerPage'],
+    'page-delete' => ['POST', AdminController::class, 'supprimerPage'],
+    'page-update' => ['POST', AdminController::class, 'modifierPage'],
 ];
 
 if (!is_string($action) || !isset($routes[$action])) {

@@ -19,16 +19,130 @@
     </form>
 </section>
 
+
+<!-- ==========================================
+     GESTION DES ALBUMS EXISTANTS
+     ========================================== -->
+
 <section class="panneau">
+
     <h2>Albums existants</h2>
-    <?php foreach ($pages as $page): ?>
-        <p><a href="<?= e(url('home', ['page' => $page['id_page']])) ?>">
-            <?= e($page['titre']) ?>
-        </a></p>
-    <?php endforeach; ?>
+
+    <?php if (empty($pages)): ?>
+
+        <p>Aucun album disponible.</p>
+
+    <?php else: ?>
+
+
+        <?php foreach ($pages as $page): ?>
+
+            <div class="album-admin">
+
+                <!-- Nom de l'album -->
+                <a href="<?= e(url('home', [
+                                'page' => $page['id_page']
+                            ])) ?>">
+                    <?= e($page['titre']) ?>
+                </a>
+
+                <!-- Bouton modifier -->
+                <button
+                    type="button"
+                    class="bouton petit"
+                    onclick="afficherModification(
+                <?= (int) $page['id_page'] ?>
+            )">
+                    Modifier
+                </button>
+
+
+                <!-- Bouton supprimer -->
+                <form
+                    action="<?= e(url('page-delete')) ?>"
+                    method="post"
+                    onsubmit="return confirm('Supprimer cet album ?');">
+                    <?= champ_csrf() ?>
+
+                    <input
+                        type="hidden"
+                        name="id_page"
+                        value="<?= (int) $page['id_page'] ?>">
+
+                    <button type="submit" class="bouton danger petit">
+                        Supprimer
+                    </button>
+                </form>
+
+            </div>
+
+            <!-- Formulaire de modification masqué -->
+            <div
+                id="modification-<?= (int) $page['id_page'] ?>"
+                class="formulaire-modification"
+                hidden>
+
+                <form
+                    action="<?= e(url('page-update')) ?>"
+                    method="post"
+                    class="formulaire">
+                    <?= champ_csrf() ?>
+
+                    <input
+                        type="hidden"
+                        name="id_page"
+                        value="<?= (int) $page['id_page'] ?>">
+
+                    <label>Titre de l'album</label>
+
+                    <input
+                        type="text"
+                        name="titre"
+                        maxlength="150"
+                        value="<?= e($page['titre']) ?>"
+                        required>
+
+                    <label>Description</label>
+
+                    <textarea
+                        name="description"
+                        maxlength="2000"
+                        rows="3"><?= e($page['description'] ?? '') ?></textarea>
+
+                    <button type="submit" class="bouton">
+                        Enregistrer
+                    </button>
+
+                </form>
+
+            </div>
+
+        <?php endforeach; ?>
+
+
+    <?php endif; ?>
 
     <p class="texte-secondaire">
-        Pour retirer définitivement une photo ou un commentaire, ouvrez son album.
-        Les éléments en cours de suppression restent visibles pour les administrateurs.
+        Un album doit être vide pour pouvoir être supprimé.
+        Les photos et commentaires doivent être supprimés
+        au préalable.
     </p>
+
 </section>
+
+<script>
+    // ==========================================
+    // AFFICHER / MASQUER LE FORMULAIRE
+    // ==========================================
+
+    function afficherModification(idPage) {
+
+        // Récupérer le formulaire de l'album
+        const formulaire = document.getElementById(
+            'modification-' + idPage
+        );
+
+        // Afficher ou masquer le formulaire
+        formulaire.hidden = !formulaire.hidden;
+    }
+</script>
