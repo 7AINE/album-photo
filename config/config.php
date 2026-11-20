@@ -10,6 +10,6 @@ return [
         'password' => '',
     ],
     // Mettre 2 pour les tests, puis 21600 (15 jours) pour la remise.
-    'delai_suppression_minutes' => 21600,
+    'delai_suppression_minutes' => 2,
     'taille_max_photo' => 5 * 1024 * 1024,
 ];
