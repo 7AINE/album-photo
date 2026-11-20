@@ -13,7 +13,7 @@
 
         <label for="mot_de_passe">Mot de passe</label>
         <input id="mot_de_passe" name="mot_de_passe" type="password"
-               autocomplete="current-password" required>
+            autocomplete="current-password" required>
 
         <button class="bouton" type="submit">Se connecter</button>
     </form>

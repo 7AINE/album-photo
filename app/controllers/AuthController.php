@@ -52,8 +52,10 @@ class AuthController
 
             if ($nom === '' || $prenom === '' || $pseudo === '' || $email === '') {
                 $erreur = 'Tous les champs sont obligatoires.';
-            } elseif (mb_strlen($nom) > 100 || mb_strlen($prenom) > 100
-                || mb_strlen($pseudo) < 3 || mb_strlen($pseudo) > 50) {
+            } elseif (
+                mb_strlen($nom) > 100 || mb_strlen($prenom) > 100
+                || mb_strlen($pseudo) < 3 || mb_strlen($pseudo) > 50
+            ) {
                 $erreur = 'Vérifiez les longueurs du nom, prénom et pseudo (3 à 50 caractères).';
             } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 255) {
                 $erreur = 'Adresse e-mail invalide.';

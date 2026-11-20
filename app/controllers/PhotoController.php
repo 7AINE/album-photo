@@ -42,8 +42,10 @@ class PhotoController
             erreur_http(422, 'La légende doit contenir de 1 à 255 caractères.');
         }
 
-        if (!$fichier || !is_array($fichier)
-            || ($fichier['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+        if (
+            !$fichier || !is_array($fichier)
+            || ($fichier['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK
+        ) {
             erreur_http(422, 'Sélectionnez une image valide.');
         }
 
@@ -65,8 +67,10 @@ class PhotoController
         ];
 
         $dimensions = @getimagesize($cheminTemporaire);
-        if (!isset($types[$mime]) || $dimensions === false
-            || $dimensions[0] > 5000 || $dimensions[1] > 5000) {
+        if (
+            !isset($types[$mime]) || $dimensions === false
+            || $dimensions[0] > 5000 || $dimensions[1] > 5000
+        ) {
             erreur_http(422, 'Formats acceptés : JPG, PNG, WEBP (5000 px maximum).');
         }
 

@@ -1,21 +1,15 @@
 # Album Photo M2L — BTS SIO SLAM 2e année
 
-Site PHP 8 + MySQL en **MVC simple** (sans framework). Les fichiers sont indentés et commentés.
+Site PHP 8 + MySQL en **MVC simple**. Les fichiers sont indentés et commentés.
 
 ## 1. Installation sur XAMPP (Windows)
 
-1. Décompresser le dossier `album_photo_m2l_mvc` dans `C:\xampp\htdocs\`.
-2. Démarrer **Apache** et **MySQL** depuis XAMPP.
-3. Ouvrir `http://localhost/phpmyadmin` et importer `sql/album_photo_m2l.sql`.
-4. Modifier si nécessaire `config/config.php` (identifiants MySQL de votre ordinateur).
-5. Ouvrir **http://localhost/album_photo_m2l_mvc/public/index.php**.
-6. Créer un compte avec **Inscription**, puis se connecter.
-7. Pour obtenir un compte administrateur, exécuter dans phpMyAdmin :
+1. Ouvrir **http://localhost/album_photo_m2l_mvc/public/index.php**.
+2. Créer un compte avec **Inscription**, puis se connecter.
+3. Pour obtenir un compte administrateur, exécuter dans phpMyAdmin :
    `UPDATE utilisateur SET role = 'admin' WHERE pseudo = 'VOTRE_PSEUDO';`
    **Se déconnecter et se reconnecter** pour actualiser le rôle.
-8. Ajouter une photo JPG/PNG/WEBP de moins de 5 Mo.
-
-**Prérequis PHP** : extensions PDO MySQL, mbstring, fileinfo (généralement incluses avec XAMPP).
+4. Ajouter une photo JPG/PNG/WEBP de moins de 5 Mo.
 
 ## 2. MVC : où modifier quoi ?
 
@@ -57,20 +51,15 @@ Pour les tests, remplacer dans `config/config.php` la valeur `21600` par `2` pui
 - Validation des données ; upload d'images vérifié par MIME réel, dimensions et taille ; nom aléatoire ; images stockées **hors du répertoire public** et servies par un contrôleur.
 - Pas d'affichage des erreurs SQL détaillées aux visiteurs.
 
-**À savoir** : ce projet pédagogique n'est pas audité pour une mise en production Internet. Utiliser HTTPS, configurer les sauvegardes et protéger le serveur avant tout déploiement public.
-
 ## 5. Checklist de recette
 
-Voir `docs/PLAN_DE_TESTS.md` et `docs/MCD_MLD.md`.
+Voir `docs/PLAN_DE_TESTS.md` et `docs/MCD_album_photo_M2L.png`.
 
 ## 6. Documentation demandée par le professeur
 
-Compléter `docs/documentation_technique.md` avec vos noms, vos captures d'écran, les tests réellement effectués et la répartition réelle du travail. Ne pas déclarer des tests non effectués.
-
+Compléter `docs/Documentation_technique_Album_Photo_M2L.md` avec vos noms, vos captures d'écran, les tests réellement effectués et la répartition réelle du travail. Ne pas déclarer des tests non effectués.
 
 ## Interface graphique
-
-Cette édition conserve **l’architecture MVC de la version BTS SIO 2A**, mais reprend l’interface du premier album : navigation blanche, titre « M2L Album », bandeau vert, galerie sur fond gris clair et pied de page vert foncé.
 
 Le code du design est dans `public/assets/style.css`, découpé en sections numérotées. Les vues personnalisées sont dans `app/views/layouts/`, `app/views/accueil.php` et `app/views/photos/detail.php`. Les modèles, contrôleurs, protections XSS/SQL/CSRF et le script SQL sont ceux du second projet.
 

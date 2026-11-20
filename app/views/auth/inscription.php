@@ -22,7 +22,7 @@
 
         <label for="mot_de_passe">Mot de passe (10 caractères minimum)</label>
         <input id="mot_de_passe" name="mot_de_passe" type="password"
-               minlength="10" maxlength="72" autocomplete="new-password" required>
+            minlength="10" maxlength="72" autocomplete="new-password" required>
 
         <button class="bouton" type="submit">Créer mon compte</button>
     </form>
